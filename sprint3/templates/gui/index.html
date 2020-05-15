@@ -1,0 +1,253 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewreport" content="width=device-width, initial-scale=1.0">
+	<title>
+		html css and bootstrap 4 simple landing page
+	</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body bgcolor="#424949">
+	<div class="container-fluid banner">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-md">
+					
+					<ul class="nav">
+						<li class="nav-item">
+							<a id="bt-home" class="nav-link" href="#">HOME</a>
+						</li>
+						<li class="nav-item">
+							<a id="bt-sport" class="nav-link" href="#">SPORT</a>
+						</li>
+						<li class="nav-item">
+							<a id="bt-health" class="nav-link" href="#">HEALTH</a>
+						</li>
+						<li class="nav-item">
+							<a id="bt-science" class="nav-link" href="#">SCIENCE</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div id="a"  class="col-md-8 offset-md-2 info">
+				<h1 class="text-center">articles scraper</h1>
+				<p class="text-center">
+					This is articles scraper scrape article from 4 web sites elwatan, tsa , aps and liberte-algerie
+				</p>
+				<a href="." id="b" class="btn btn-md text-center"><div id="txt">Refresh</div></a>
+			</div>
+
+			
+			<div id="sport" class="all">
+			{% for i in sport %}
+			<div id="table">
+				<img id="img" src="{{i.img}}" onerror="this.onerror=null;this.src='https://i.ibb.co/8cfP6ZD/elwatan.png';" >
+				<div id="title"><br>
+			{{i.title}} </div><br><br><br><a id="alink" target="_blank" href="{{i.link}}">read</a></div>
+			{% endfor %}
+			</div>
+
+			<div id="health" class="all">
+			{% for i in health %}
+			<div id="table">
+				<img id="img" src="{{i.img}}" onerror="this.onerror=null;this.src='https://i.ibb.co/8cfP6ZD/elwatan.png';" >
+				<div id="title"><br>
+			{{i.title}} </div><br><br><br><a id="alink" target="_blank" href="{{i.link}}">read</a></div>
+			{% endfor %}
+			</div>
+
+			
+			<div id="science" class="all">
+			{% for i in science %}
+			<div id="table">
+				<img id="img" src="{{i.img}}" onerror="this.onerror=null;this.src='https://i.ibb.co/8cfP6ZD/elwatan.png';" >
+				<div id="title"><br>
+			{{i.title}} </div><br><br><br><a id="alink" target="_blank" href="{{i.link}}">read</a></div>
+			{% endfor %}
+			</div>
+		<script type="text/javascript">
+			$('#sport').hide();
+			$('#health').hide();
+			$('#science').hide();
+			$('#bt-sport').click(function(){
+				$('#sport').fadeIn()
+				$('#health').fadeOut()
+				$('#science').fadeOut()
+			})
+				$('#bt-health').click(function(){
+				$('#health').fadeIn()
+				$('#sport').fadeOut()
+				$('#science').fadeOut()
+			})
+			$('#bt-science').click(function(){
+				$('#science').fadeIn()
+				$('#health').fadeOut()
+				$('#sport').fadeOut()
+			})
+			$('#bt-home').click(function(){
+				$('#science').fadeOut()
+				$('#health').fadeOut()
+				$('#sport').fadeOut()
+			})
+		</script>
+		</div>
+	</div>
+	
+		<style type="text/css">
+		body{
+	margin:0;
+	padding:0;
+	background:#fff;
+	font-family: 'Raleway',sans-serif;
+	color: #fff;
+}
+.banner{
+	height: 100vh;
+	width: 100%;
+	background:url('https://i.ibb.co/G98kKM3/overlay.png'),url('https://i.ibb.co/Ypqq03g/banner2.jpg');
+	background-position: top;
+	background-size:cover;
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+}
+.banner .navbar{
+	margin-top:0%;
+}
+.banner .navbar-brand{
+	color: #fff;
+	font-size:1.8em;
+	font-weight: 700;
+	margin-left: 0%;
+}
+.banner .nav{
+	margin-right:10%; 
+	top: 0;
+}
+.banner .nav li a{
+	color:#aaa;
+	font-size: 1.2em;
+}
+.banner .info{
+	margin-top:15%;
+	transform: translateY(-15%);
+}
+.banner .info h1{
+	font-size: 2.5em;
+	font-weight: 700;
+	color: #fff;
+	letter-spacing: 2px;
+}
+.banner .info p{
+	font-size: 2em;
+	font-weight: 500;
+	color: #aaa;
+	letter-spacing: 2px;
+}
+.banner .info a{
+	margin-left:50%;
+	transform: translateX(-50%);
+	color: #fff;
+	background: #e91d43;
+	padding:10px 20px; 
+	font-size: 2em;
+	font-weight: 600;
+}
+.banner .info a:hover{
+	background: #e91e63;
+}
+
+.nav-link:hover{
+	background: white;
+	border-radius: 20px;
+	transition-duration: 0.5s;
+}
+
+.btn-md{
+	border-radius: 25px;
+}
+#txt{
+	font-size: 15px;
+}
+
+
+
+
+
+
+#table{
+    margin: 20px;
+    text-align: center;
+    width: 490px;
+    float: left;
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    margin-top: 30px;
+    padding-right: 10px;
+    border-radius: 5px;
+    background-color: white;
+    
+}
+
+
+#img{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 5px 0 0 5px;
+    background-image: url(a.png);
+    background-size: 200px 200px;
+}
+
+#title{
+    font-size: 15px;
+    font-family: arial;
+    color:gray;
+    display: inline;
+    
+}
+.all{
+    width: 1100px;
+    margin: 150px auto;
+
+}
+
+#table:hover{
+    webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    transform: scale(1.06);
+}
+#alink{
+	
+    background-color: #ddd;
+    display: inline;
+    padding: 6px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: black;
+    font-family: arial;
+
+}
+
+@media screen and (max-width: 1050px) {
+	#all{
+		width: 480px;
+	}
+	#table{
+		width: 90%;
+	}
+}
+	</style>
+</body>
+</html>
